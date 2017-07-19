@@ -10,8 +10,8 @@ function remove() {
 }
 
 for (let i = 0; i < num.length; i++) {
-    num[i].addEventListener("click", numero);
-    function numero() {
+    num[i].addEventListener("click", numbers);
+    function numbers() {
       display.innerHTML += num[i].innerHTML;
     }
 }
