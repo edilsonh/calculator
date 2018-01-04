@@ -4,6 +4,7 @@ let clear = document.getElementById("clear");
 let equal = document.getElementById("equal");
 let decimal = document.getElementById("decimal");
 let display = document.getElementById("display");
+let turn = 0;
 
 clear.addEventListener("click", function remove() {
   display.innerHTML = "";
@@ -11,6 +12,10 @@ clear.addEventListener("click", function remove() {
 
 for (let i = 0; i < num.length; i++) {
     num[i].addEventListener("click", function numbers() {
+      if (turn === 1) {
+        turn = 0;
+        display.innerHTML = "";
+      }
       display.innerHTML += num[i].innerHTML;
     });
 }
@@ -18,6 +23,7 @@ for (let i = 0; i < num.length; i++) {
 for (let i = 0; i < op.length; i++) {
   op[i].addEventListener("click", function operate() {
     display.innerHTML += ` ${op[i].innerHTML} `;
+    turn = 0;
   });
 }
 
@@ -38,4 +44,5 @@ equal.addEventListener("click", function equate() {
     result = parseFloat(eq[0]) + parseFloat(eq[2]);
   }
   display.innerHTML = parseFloat(result.toFixed(4));
+  turn = 1;
 });
